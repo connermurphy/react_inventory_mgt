@@ -52,7 +52,6 @@ class NewProduct extends React.Component {
 
             this.setState({ productName : "", productStock : 0 });
             alert("Product added successfully!");
-
         }
     }
 
