@@ -38,11 +38,9 @@ class Product extends React.Component {
     deleteProduct(id) {
 
         const products = JSON.parse(localStorage.getItem("products"));
-        const targetProduct = products.filter((obj) => {
-            return obj.id === id;
-        });
 
-        products.splice(products.indexOf(targetProduct) + 1, 1);
+        console.log(products.findIndex(x => x.id === id));
+        products.splice(products.findIndex(x => x.id === id), 1);
         localStorage.setItem("products", JSON.stringify(products));
         this.props.deleteCallback(products);
     }

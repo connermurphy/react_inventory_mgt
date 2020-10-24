@@ -52,6 +52,8 @@ class NewProduct extends React.Component {
 
             this.setState({ productName : "", productStock : 0 });
             alert("Product added successfully!");
+
+            this.setState({ productName : "", productStock : 0 });
         }
     }
 
@@ -65,13 +67,13 @@ class NewProduct extends React.Component {
                             <label className="text-sm block mb-1">
                                 Name
                             </label>
-                            <input type="text" onChange={(e) => this.setState({ productName : e.target.value })} className="shadow-md px-2 py-1 w-full" placeholder="Product Name"  />
+                            <input type="text" value={this.state.productName} onChange={(e) => this.setState({ productName : e.target.value })} className="shadow-md px-2 py-1 w-full" placeholder="Product Name"  />
                         </div>
                         <div className="my-4">
                             <label className="text-sm block mb-1">
                                 Stock Count
                             </label>
-                            <input type="number" onChange={(e) => this.setState({ productStock : e.target.value })} step="1" className="shadow-md px-2 py-1 w-full" placeholder="100"  />
+                            <input type="number" value={this.state.productStock} onChange={(e) => this.setState({ productStock : e.target.value })} step="1" className="shadow-md px-2 py-1 w-full" placeholder="100"  />
                         </div>
                         <div className="my-4">
                             <button type="submit" className="w-full bg-blue-600 text-white py-2 font-bold">Add Product</button>

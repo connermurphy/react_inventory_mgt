@@ -1,26 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Edit from './components/Edit';
 
 import Header from './components/Header';
 
 import Home from './components/Home';
 import NewProduct from './components/NewProduct';
 
-import Alert from './components/Alert';
-
 import './css/layout.css';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      products : localStorage.getItem("products") == null ? [] : JSON.parse(localStorage.getItem("products"))
-    }
-
-  }
- 
   render() {
 
     return (
@@ -30,10 +20,13 @@ class App extends React.Component {
           <main>
             <Switch>
               <Route exact path="/">
-                {this.state.products.length > 0 ? <Home data={this.state.products}/> : <Alert type="info" msg="There are no products available!" />}
+                <Home/>
               </Route>
               <Route path="/addproduct">
                 <NewProduct />
+              </Route>
+              <Route path="/edit/:id">
+                <Edit/>
               </Route>
             </Switch>
           </main>
